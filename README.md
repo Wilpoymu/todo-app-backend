@@ -63,45 +63,51 @@ src
 ```
 
 ### Application Properties
-```properties
-### User:
-- `id`: Unique identifier of the user.
-- `name`: User's name.
-- `email`: User's email address.
-- `password`: User's password (preferably stored securely, e.g., hashed).
-- Other optional fields such as `createdAt`, `lastLogin`, etc.
+### User (Usuario):
+- `id`: Identificador único del usuario.
+- `name`: Nombre del usuario.
+- `email`: Dirección de correo electrónico del usuario.
+- `projects`: Conjunto de proyectos a los que pertenece el usuario.
+- `tasks`: Conjunto de tareas asignadas al usuario.
+- Otros campos opcionales como `createdAt`, etc.
 
-### Task:
-- `id`: Unique identifier of the task.
-- `name`: Name of the task.
-- `description`: Description of the task.
-- `createdAt`: Date when the task was created.
-- `dueDate`: Due date of the task (optional).
-- `status`: Status of the task (e.g., "pending", "in progress", "completed").
-- `priority`: Priority of the task (optional).
-- Other optional fields such as `updatedAt`, `completedAt`, etc.
+### Task (Tarea):
+- `id`: Identificador único de la tarea.
+- `name`: Nombre de la tarea.
+- `description`: Descripción de la tarea.
+- `createdAt`: Fecha en que se creó la tarea.
+- `dueDate`: Fecha de vencimiento de la tarea (opcional).
+- `status`: Estado de la tarea (por ejemplo, "pendiente", "en progreso", "completada").
+- `priority`: Prioridad de la tarea (opcional).
+- `project`: Proyecto al que pertenece la tarea.
+- `assignedTo`: Usuario al que se le ha asignado la tarea.
+- `tags`: Conjunto de etiquetas asociadas a la tarea.
+- `comments`: Conjunto de comentarios asociados a la tarea.
+- Otros campos opcionales como `updatedAt`, `completedAt`, etc.
 
-### Project:
-- `id`: Unique identifier of the project.
-- `name`: Name of the project.
-- `description`: Description of the project.
-- `startDate`: Start date of the project.
-- `endDate`: End date of the project (optional).
-- Other optional fields such as `createdAt`, `updatedAt`, etc.
+### Project (Proyecto):
+- `id`: Identificador único del proyecto.
+- `name`: Nombre del proyecto.
+- `description`: Descripción del proyecto.
+- `startDate`: Fecha de inicio del proyecto.
+- `endDate`: Fecha de finalización del proyecto (opcional).
+- `users`: Conjunto de usuarios asociados al proyecto.
+- `tasks`: Conjunto de tareas asociadas al proyecto.
+- Otros campos opcionales como `createdAt`, `updatedAt`, etc.
 
-### Tag:
-- `id`: Unique identifier of the tag.
-- `name`: Name of the tag.
-- `color`: Color associated with the tag (optional).
-- Other optional fields such as `description`, `createdAt`, etc.
+### Tag (Etiqueta):
+- `id`: Identificador único de la etiqueta.
+- `name`: Nombre de la etiqueta.
+- `color`: Color asociado con la etiqueta (opcional).
+- `tasks`: Conjunto de tareas asociadas a la etiqueta.
+- Otros campos opcionales como `description`, `createdAt`, etc.
 
-### Comment:
-- `id`: Unique identifier of the comment.
-- `content`: Content of the comment.
-- `createdAt`: Date when the comment was created.
-- `user`: Reference to the user who created the comment.
-- `task`: Reference to the task to which the comment is associated.
-- Other optional fields such as `updatedAt`, `modifiedBy`, etc.
+### Comment (Comentario):
+- `id`: Identificador único del comentario.
+- `content`: Contenido del comentario.
+- `createdAt`: Fecha en que se creó el comentario.
+- `task`: Tarea a la que está asociado el comentario.
+- Otros campos opcionales como `updatedAt`, `modifiedBy`, etc.
 
 
 
