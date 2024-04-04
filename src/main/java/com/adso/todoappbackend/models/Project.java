@@ -2,6 +2,7 @@ package com.adso.todoappbackend.models;
 
 import jakarta.persistence.*;
 
+import java.util.Date;
 import java.util.HashSet;
 import java.util.Set;
 
@@ -12,6 +13,12 @@ public class Project {
     private Long id;
 
     private String name;
+    private String description;
+
+    @Temporal(TemporalType.DATE)
+    private Date startDate;
+    @Temporal(TemporalType.DATE)
+    private Date endDate;
 
     // Project can have many users
     @ManyToMany(mappedBy = "projects")
@@ -21,15 +28,17 @@ public class Project {
     @OneToMany(mappedBy = "project")
     private Set<Task> tasks = new HashSet<>();
 
-    // Constructors
     public Project() {
     }
 
-    public Project(String name) {
+    public Project(String name, String description, Date startDate) {
         this.name = name;
+        this.description = description;
+        this.startDate = startDate;
     }
 
     // Getters and setters
+
     public Long getId() {
         return id;
     }
@@ -44,6 +53,30 @@ public class Project {
 
     public void setName(String name) {
         this.name = name;
+    }
+
+    public String getDescription() {
+        return description;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
+    }
+
+    public Date getStartDate() {
+        return startDate;
+    }
+
+    public void setStartDate(Date startDate) {
+        this.startDate = startDate;
+    }
+
+    public Date getEndDate() {
+        return endDate;
+    }
+
+    public void setEndDate(Date endDate) {
+        this.endDate = endDate;
     }
 
     public Set<User> getUsers() {
