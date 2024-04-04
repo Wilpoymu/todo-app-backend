@@ -62,7 +62,7 @@ src
         └── application.properties
 ```
 
-### Application Properties
+## Application Properties
 ### User (Usuario):
 - `id`: Identificador único del usuario.
 - `name`: Nombre del usuario.
