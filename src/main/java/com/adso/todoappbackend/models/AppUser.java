@@ -6,28 +6,28 @@ import java.util.HashSet;
 import java.util.Set;
 
 @Entity
-public class User {
+@Table(name = "app_user")
+public class AppUser {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
+
+    @ManyToMany
+    @JoinTable(name = "project_user", joinColumns = @JoinColumn(name = "user_id"), inverseJoinColumns = @JoinColumn(name = "project_id"))
+    private Set<Project> projects = new HashSet<>();
+
+    @OneToMany(mappedBy = "appUser") // Corregir el mappedBy
+    private Set<Task> tasks = new HashSet<>();
     private String name;
     private String email;
 
-    // User can belong to many projects
-    @ManyToMany
-    @JoinTable(
-            name = "project_user",
-            joinColumns = @JoinColumn(name = "project_id"))
-    private Set<Project> projects = new HashSet<>();
-
-    // User can have many tasks
-    @OneToMany(mappedBy = "user")
-    private Set<Task> tasks = new HashSet<>();
-
-    public User() {
+    public AppUser() {
     }
 
-    public User(String name, String email) {
+    public AppUser(Long id, Set<Project> projects, Set<Task> tasks, String name, String email) {
+        this.id = id;
+        this.projects = projects;
+        this.tasks = tasks;
         this.name = name;
         this.email = email;
     }
@@ -38,22 +38,6 @@ public class User {
 
     public void setId(Long id) {
         this.id = id;
-    }
-
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    public String getEmail() {
-        return email;
-    }
-
-    public void setEmail(String email) {
-        this.email = email;
     }
 
     public Set<Project> getProjects() {
@@ -70,5 +54,21 @@ public class User {
 
     public void setTasks(Set<Task> tasks) {
         this.tasks = tasks;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
     }
 }

@@ -91,7 +91,7 @@ src
 - `description`: Descripción del proyecto.
 - `startDate`: Fecha de inicio del proyecto.
 - `endDate`: Fecha de finalización del proyecto (opcional).
-- `users`: Conjunto de usuarios asociados al proyecto.
+- `appUsers`: Conjunto de usuarios asociados al proyecto.
 - `tasks`: Conjunto de tareas asociadas al proyecto.
 - Otros campos opcionales como `createdAt`, `updatedAt`, etc.
 

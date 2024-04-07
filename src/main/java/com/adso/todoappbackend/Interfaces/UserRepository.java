@@ -1,4 +1,9 @@
-package com.adso.todoappbackend.models;
+package com.adso.todoappbackend.Interfaces;
 
-public interface UserRepository {
+import com.adso.todoappbackend.models.AppUser;
+import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.stereotype.Repository;
+
+@Repository
+public interface UserRepository extends JpaRepository<AppUser, Long> {
 }
