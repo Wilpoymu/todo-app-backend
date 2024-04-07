@@ -40,30 +40,24 @@ src
     │       └── yourcompany
     │           └── yourapplication
     │               ├── controller
-    │               │   ├── UserController.java
+    │               │   ├── AppUserController.java
     │               │   ├── TaskController.java
-    │               │   ├── ProjectController.java
-    │               │   ├── TagController.java
-    │               │   └── CommentController.java
+    │               │   └── ProjectController.java
     │               ├── model
-    │               │   ├── User.java
+    │               │   ├── AppUser.java
     │               │   ├── Task.java
-    │               │   ├── Project.java
-    │               │   ├── Tag.java
-    │               │   └── Comment.java
+    │               │   └── Project.java
     │               ├── repository
-    │               │   ├── UserRepository.java
+    │               │   ├── AppUserRepository.java
     │               │   ├── TaskRepository.java
-    │               │   ├── ProjectRepository.java
-    │               │   ├── TagRepository.java
-    │               │   └── CommentRepository.java
+    │               │   └── ProjectRepository.java
     │               └── YourApplicationApplication.java
     └── resources
         └── application.properties
 ```
 
 ## Application Properties
-### User (Usuario):
+### AppUser (Usuario):
 - `id`: Identificador único del usuario.
 - `name`: Nombre del usuario.
 - `email`: Dirección de correo electrónico del usuario.
@@ -75,39 +69,12 @@ src
 - `id`: Identificador único de la tarea.
 - `name`: Nombre de la tarea.
 - `description`: Descripción de la tarea.
-- `createdAt`: Fecha en que se creó la tarea.
-- `dueDate`: Fecha de vencimiento de la tarea (opcional).
-- `status`: Estado de la tarea (por ejemplo, "pendiente", "en progreso", "completada").
-- `priority`: Prioridad de la tarea (opcional).
 - `project`: Proyecto al que pertenece la tarea.
-- `assignedTo`: Usuario al que se le ha asignado la tarea.
-- `tags`: Conjunto de etiquetas asociadas a la tarea.
-- `comments`: Conjunto de comentarios asociados a la tarea.
-- Otros campos opcionales como `updatedAt`, `completedAt`, etc.
 
 ### Project (Proyecto):
 - `id`: Identificador único del proyecto.
 - `name`: Nombre del proyecto.
 - `description`: Descripción del proyecto.
-- `startDate`: Fecha de inicio del proyecto.
-- `endDate`: Fecha de finalización del proyecto (opcional).
-- `appUsers`: Conjunto de usuarios asociados al proyecto.
 - `tasks`: Conjunto de tareas asociadas al proyecto.
 - Otros campos opcionales como `createdAt`, `updatedAt`, etc.
-
-### Tag (Etiqueta):
-- `id`: Identificador único de la etiqueta.
-- `name`: Nombre de la etiqueta.
-- `color`: Color asociado con la etiqueta (opcional).
-- `tasks`: Conjunto de tareas asociadas a la etiqueta.
-- Otros campos opcionales como `description`, `createdAt`, etc.
-
-### Comment (Comentario):
-- `id`: Identificador único del comentario.
-- `content`: Contenido del comentario.
-- `createdAt`: Fecha en que se creó el comentario.
-- `task`: Tarea a la que está asociado el comentario.
-- Otros campos opcionales como `updatedAt`, `modifiedBy`, etc.
-
-
 
