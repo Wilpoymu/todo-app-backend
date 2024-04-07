@@ -4,7 +4,7 @@ import com.adso.todoappbackend.models.AppUser;
 
 import java.util.List;
 
-public interface UserService {
+public interface AppUserService {
     List<AppUser> getAllUsers();
 
     AppUser getUserById(Long id);
