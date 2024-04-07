@@ -77,4 +77,3 @@ src
 - `description`: Descripción del proyecto.
 - `tasks`: Conjunto de tareas asociadas al proyecto.
 - Otros campos opcionales como `createdAt`, `updatedAt`, etc.
-
