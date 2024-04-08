@@ -1,6 +1,6 @@
 package com.adso.todoappbackend.services;
 
-import com.adso.todoappbackend.Interfaces.UserRepository;
+import com.adso.todoappbackend.Interfaces.AppUserRepository;
 import com.adso.todoappbackend.models.AppUser;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -11,34 +11,34 @@ import java.util.List;
 public class AppUserServiceImplement implements AppUserService {
 
     @Autowired
-    private UserRepository userRepository;
+    private AppUserRepository appUserRepository;
 
     @Override
     public List<AppUser> getAllUsers() {
-        return (List<AppUser>) userRepository.findAll();
+        return (List<AppUser>) appUserRepository.findAll();
     }
 
     @Override
     public AppUser getUserById(Long id) {
-        return userRepository.findById(id).orElse(null);
+        return appUserRepository.findById(id).orElse(null);
     }
 
     @Override
     public AppUser createUser(AppUser appUser) {
-        return userRepository.save(appUser);
+        return appUserRepository.save(appUser);
     }
 
     @Override
     public AppUser updateUser(Long id, AppUser appUser) {
-        if (userRepository.existsById(id)) {
+        if (appUserRepository.existsById(id)) {
             appUser.setId(id);
-            return userRepository.save(appUser);
+            return appUserRepository.save(appUser);
         }
         return null;
     }
 
     @Override
     public void deleteUser(Long id) {
-        userRepository.deleteById(id);
+        appUserRepository.deleteById(id);
     }
 }
