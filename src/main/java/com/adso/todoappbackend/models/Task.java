@@ -1,5 +1,6 @@
 package com.adso.todoappbackend.models;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 
 @Entity
@@ -9,10 +10,12 @@ public class Task {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
+    @JsonIgnore
     @ManyToOne
     @JoinColumn(name = "project_id")
     private Project project;
 
+    @JsonIgnore
     @ManyToOne
     @JoinColumn(name = "user_id")
     private AppUser appUser;
