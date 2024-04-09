@@ -1,5 +1,6 @@
 package com.adso.todoappbackend.models;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 
 import java.util.HashSet;
@@ -11,8 +12,10 @@ public class Project {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
+    @JsonIgnore
     @OneToMany(mappedBy = "project")
     private Set<Task> tasks = new HashSet<>();
+    @JsonIgnore
     @ManyToMany(mappedBy = "projects")
     private Set<AppUser> appUsers = new HashSet<>();
     private String name;

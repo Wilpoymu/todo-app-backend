@@ -1,5 +1,6 @@
 package com.adso.todoappbackend.models;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 
 import java.util.HashSet;
@@ -12,11 +13,13 @@ public class AppUser {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
+    @JsonIgnore
     @ManyToMany
     @JoinTable(name = "project_user", joinColumns = @JoinColumn(name = "user_id"), inverseJoinColumns = @JoinColumn(name = "project_id"))
     private Set<Project> projects = new HashSet<>();
 
-    @OneToMany(mappedBy = "appUser") // Corregir el mappedBy
+    @JsonIgnore
+    @OneToMany(mappedBy = "appUser")
     private Set<Task> tasks = new HashSet<>();
     private String name;
     private String email;
