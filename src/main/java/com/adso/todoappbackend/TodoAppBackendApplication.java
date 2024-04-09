@@ -21,5 +21,7 @@ public class TodoAppBackendApplication {
                         .version("1.0")
                         .description("Todo App API"));
     }
+
+    // Swagger URL: http://localhost:8080/api-docs/swagger-ui/index.html
 }
 

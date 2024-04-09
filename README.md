@@ -51,6 +51,13 @@ src
     │               │   ├── AppUserRepository.java
     │               │   ├── TaskRepository.java
     │               │   └── ProjectRepository.java
+    │               ├── services
+    │               │   ├── AppUserService.java
+    │               │   ├── AppUserServiceImplement.java
+    │               │   ├── ProjectService.java
+    │               │   ├── ProjectServiceImplement.java
+    │               │   ├── TaskService.java
+    │               │   └── TaskServiceImplement.java
     │               └── YourApplicationApplication.java
     └── resources
         └── application.properties
